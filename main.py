@@ -57,7 +57,7 @@ def underwater_world():
     print("Ви потрапили у підводний світ. Куди хочете далі? \nЗакопатись в пісок і запитати в Сома де скарб (1), у гості до Зевса (2), на риболовлю (3)")
     choice2 = input("Що ви оберете?")
     if choice2 == "1":
-        choice21 = input("За допомогою своєї блискучої інтуїції ви знайшли Сома з першого разу. Як ви його запитаєте? \nHello, how are you Som? Where is the treasure? (1) \nБуль-буль, буль буль буль. Буль? (2)")
+        choice21 = input("За допомогою своєї блискучої інтуїції ви знайшли Сома з першого разу. \nЯк ви його запитаєте? \nHello, how are you Som? Where is the treasure? (1) \nБуль-буль, буль буль буль. Буль? (2)")
         if choice21 == "1":
             print("Сом: I`m good. Thank you! It's right here!")
             find_treasure()
@@ -110,21 +110,117 @@ def fight_escape():
             print(f"Ви перемогли. Ваш суперник {enemy.name} - програв! Ваша життєва енергія: {player.health}\n")
             intro()
 
-def encounter_monster():
-    print("Oh no! You've encountered a fearsome monster!")
-    action = input("Do you want to fight or run? ").lower()
-    if action == "fight":
-        if random.randint(0, 1):
-            print("Congratulations! You defeated the monster and found the treasure!")
-        else:
-            print("You were defeated by the monster. Game over.")
-    elif action == "run":
-        print("You managed to escape from the monster.")
-        choose_path()
+def magical_forest():
+    print("Ви опинились в чарівному лісі. \nТут ви можете знайти вирішення своїх проблем. \nПеред вами три дороги: \nдо хатинки відьми (1), \nдо кафе (2), \nабо до всезнаючого Чиширського кота (3)")
+    choice3 = input("Куди підете?")
+    if choice3 == "1":
+        witch_house()
+    elif choice3 == "2":
+        in_cafe()
+    elif choice3 == "3":
+        hello_kitty()
     else:
         print("Будьте серйозні, будь ласка!")
-        encounter_monster()
+        magical_forest()
 
+def witch_house():
+    print
+def in_cafe():
+    print("Ви зайшли до затишного кафе. Який же тут запах!")
+    choice4 = input("Що ви скуштуєте? \nКруасан (1) \nЗелений кекс (2) \nРомашковий чай (3)")
+    if choice4 == "1":
+        print("Дуже смачно! Це справжній скарб!")
+        find_treasure()
+    elif choice4 == "2":
+        print("Ну ви що? Хіба ви не знаєте? Якщо їда викликає підозри, потрібно її викинути! \n Вас знудило і ви не змогли продовжити пошуки скарбу :(")
+        game_lost()
+    elif choice4 == "3":
+        print("Дуже ароматний і заспокійливий чай! \nВи розслабляєтесь... \nІ поринаєте в сон?... \nЧи це інший вимір?...")
+        in_dream()
+    else:
+        print("Будьмо уважні!")
+        in_cafe()
+
+def in_dream():
+    print("Ви летите і не відчуваєте свого тіла. \nЦе ніби кольоровий тунель... \nДе ви опинитесь? \n... \nІ коли прокинитесь? \n...")
+    print("....Лунає голос.....")
+    print("Стюардеса: Дякуємо, що обрали наші авіалінії! \nСтюардеса: Сподіваємось, що вам сподобається подорож!")
+    print("Ви опинились на зеленій поляні з травою. Тільки трава і небо, і більше нічого...")
+    choice5 = input("Що будете робити? \nГрати у футбол (1), загаряти (2), бігати за метеликами (3)?")
+    if choice5 == "1":
+        print("")
+        play_football()
+    elif choice5 == "2":
+        print("")
+        sun_bathe()
+    elif choice5 == "3":
+        print("")
+        hello_butterfly()
+    else:
+        print("Щось ви замріялись!")
+        in_dream()
+
+def play_football():
+    print
+
+def sun_bathe():
+    print
+
+def hello_butterfly():
+    print
+
+def hello_kitty():
+    print("Здається, Кіт мав бути десь тут. Можливо він кудись пішов..? А ні! От і він!")
+    print("...")
+    fortunes = [
+    "Якщо пес гавкає, то це просто пес, який собі просто гавкає. Це нічого не означає.",
+    "Ти суслика бачиш? А він там єєєєє!",
+    "Серйозне ставлення до будь-чого є фатальною помилкою.",
+    "Всі найкращі люди - ненормальні, і ти в тому числі.",
+    "Якщо не знаєш куди йти, то йди куди-небудь. Головне - продовжуй йти.",
+    "Починай діяти, коли почуєш дзвіночок!",
+    "Зроби перший крок і тоді все поступово стане на свої місця!",
+    ]
+    def get_random_fortune():
+        return random.choice(fortunes)
+    while True:
+        input("Чеширський кіт: Добрррий день! Якщо вас щось цікавить, запитуйте! Я знаю абсолютно все!")
+        fortune = get_random_fortune()
+        print("Чеширський кіт: ")
+        print(fortune)
+    
+        play_again = input("\nХочеш спробувати знову? \nТак (1) \nНі (2) \n")
+        if play_again != "1":
+            print("Приходь знову!")
+            rabbit_hole()
+            break
+
+# def encounter_monster():
+#     print("Oh no! You've encountered a fearsome monster!")
+#     action = input("Do you want to fight or run? ").lower()
+#     if action == "fight":
+#         if random.randint(0, 1):
+#             print("Congratulations! You defeated the monster and found the treasure!")
+#         else:
+#             print("You were defeated by the monster. Game over.")
+#     elif action == "run":
+#         print("You managed to escape from the monster.")
+#         choose_path()
+#     else:
+#         print("Будьте серйозні, будь ласка!")
+#         encounter_monster()
+def rabbit_hole():
+    print("Ідучи від Чеширського Кота, ви впали в кролячу яму :(")
+    number = input("Вгадайте число! Від 1 до 10: ")
+    if number == "7":
+        print("Правильно! Вітаю!")
+        find_treasure()
+    else:
+        print("Неправильно! Кроляча лапка вам не принесла везіння. \nВи зламали ногу і не змогли продовжити пошуки скарбу :(")
+        game_lost()
+
+def outer_space():
+    print
 def find_treasure():
     print("""  
            .--..--..--..--..--..--.
@@ -192,6 +288,7 @@ def game_lost():
      /o  o\ .'   `. /o  o|
      `.___.'       `.___.'
         """)
+    print("Ви програли!")
 
 def main():
     intro()
